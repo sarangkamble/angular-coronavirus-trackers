@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { CountriesComponent } from './components/countries/countries.component';
 import { DataService } from './services/data.service';
+//import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

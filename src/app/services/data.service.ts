@@ -6,8 +6,21 @@ import { GolbalDataSummary } from '../models/global.data';
 @Injectable()
 export class DataService {
 
-private GOLBAL_DATA_URL = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/04-29-2020.csv`;
+private GOLBAL_DATA_URL = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/04-30-2020.csv`;
+private DATEWISE_DATA_URL = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv`;
   constructor(private _http: HttpClient) { }
+
+  getDateWiseData(){
+    return this._http.get(this.DATEWISE_DATA_URL, {responseType : 'text'})
+      .pipe(map(result =>{
+        let rows = result.split('\n');
+        
+        let header = rows[0];
+        let headerValues = header.split(/,(?=\S)/);
+        console.log(headerValues);
+        return result;
+      }))
+  }
 
   getGlobalData(){
     return this._http.get(this.GOLBAL_DATA_URL, {responseType : 'text'}).pipe(

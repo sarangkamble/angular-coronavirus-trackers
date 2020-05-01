@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { GolbalDataSummary } from '../models/global.data';
+import { DateWiseData } from '../models/datewise.data';
 
 @Injectable()
 export class DataService {
@@ -14,11 +15,34 @@ private DATEWISE_DATA_URL = `https://raw.githubusercontent.com/CSSEGISandData/CO
     return this._http.get(this.DATEWISE_DATA_URL, {responseType : 'text'})
       .pipe(map(result =>{
         let rows = result.split('\n');
+        let mainData = {};
         
         let header = rows[0];
-        let headerValues = header.split(/,(?=\S)/);
-        console.log(headerValues);
-        return result;
+        let dates = header.split(/,(?=\S)/);
+        dates.splice(0, 4);
+        rows.splice(0, 1);
+
+        rows.forEach(row=>{
+          let cols = row.split(/,(?=\S)/);
+          let con = cols[1];
+          cols.splice(0, 4);
+         // console.log(con, cols);
+          mainData[con] = [];
+          cols.forEach((value, index)=>{
+            let dw : DateWiseData = {
+              cases : + value,
+              country : con,
+              date : new Date(Date.parse(dates[index]))
+            } 
+            mainData[con].push(dw)
+          })
+        })
+       // console.log(mainData)
+
+
+//        console.log(dates);
+
+        return mainData;
       }))
   }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../../services/data.service";
 import { GolbalDataSummary } from "../models/global.data";
-import { GoogleChartInterface } from "ng2-google-charts";
 
 @Component({
   selector: "app-home",
@@ -14,19 +13,32 @@ export class HomeComponent implements OnInit {
   totalRecovered = 0;
   totalActive = 0;
   golbalData: GolbalDataSummary[];
-  pieChart: GoogleChartInterface = {
-    chartType: "PieChart"
-  };
+  datatable = [];
+  chart ={
+    PieChart: 'PieChart',
+    ColumnChart: 'ColumnChart',
+    LineChart: 'LineChart',
+    height: 500,
+    options: {
+        animation:{
+          duration: 1000,
+          easing: 'out',
+        },
+        is3D: true
+      }
 
-  columnChart: GoogleChartInterface = {
-    chartType: "ColumnChart"
-  };
+  }
+
+        
+
+
 
   constructor(private dataService: DataService) {}
 
   initChart(caseType: string) {
-    let datatable = [];
-    datatable.push(["Country", "Cases"]);
+
+  this.datatable = [];  
+//    this.datatable.push(["Country", "Cases"]);
     this.golbalData.forEach(cs => {
       let value : number;
 
@@ -52,27 +64,11 @@ export class HomeComponent implements OnInit {
         if (cs.recovered > 2000)
           value = cs.recovered
           
-      datatable.push([cs.country, value]);
+      this.datatable.push([cs.country, value]);
     });
     //
-    this.pieChart = {
-      chartType: "PieChart",
-      dataTable: datatable,
-      //firstRowIsData: true,
+    console.log(this.datatable)
 
-      options: {
-        height: 500
-      }
-    };
-    this.columnChart = {
-      chartType: "ColumnChart",
-      dataTable: datatable,
-      //firstRowIsData: true,
-
-      options: {
-        height: 500
-      }
-    };
   }
 
   ngOnInit() {

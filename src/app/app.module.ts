@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, NgbModule, AppRoutingModule, HttpClientModule, Ng2GoogleChartsModule],
+  imports:      [ BrowserModule, FormsModule, NgbModule, AppRoutingModule, HttpClientModule, GoogleChartsModule],
   declarations: [ AppComponent, HomeComponent, NavbarComponent, CountriesComponent, DashboardCardComponent ],
   bootstrap:    [ AppComponent ],
   providers: [DataService]

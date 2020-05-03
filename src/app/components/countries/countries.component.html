@@ -10,30 +10,35 @@
                         </select>
 		</div>
 	</div>
-	<app-dashboard-card [totalConfirmed]='totalConfirmed' [totalRecovered]='totalRecovered'
-                        [totalDeaths]='totalDeaths' [totalActive]='totalActive'></app-dashboard-card>
+	<app-dashboard-card [totalConfirmed]='totalConfirmed' [totalRecovered]='totalRecovered' [totalDeaths]='totalDeaths'
+		[totalActive]='totalActive'></app-dashboard-card>
 
-  <div class="card row">
-    <div class="col">
-      <google-chart [data]="lineChart"></google-chart>
-    </div>
-
-    <table class="table col">
-      <thead>
-        <tr>
-        <th>Sr No</th>
-        <th>Date</th>
-        <th>Cases</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let cs of selectedCountryData; index as i">
-        <th>{{i+1}}</th>
-        <th>{{cs.date | date}}</th>
-        <th>{{cs.cases}}</th>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+	<div class="row">
+		<div class="col">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Sr No</th>
+						<th>Date</th>
+						<th>Cases</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let cs of selectedCountryData; index as i">
+						<th>{{i+1}}</th>
+						<th>{{cs.date | date}}</th>
+						<th>{{cs.cases}}</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- <div class="col">
+			<google-chart [type]="chart.LineChart"></google-chart>
+		</div> -->
+		<div class="col">
+			<google-chart [type]="chart.LineChart" [height]='chart.height' [options]='chart.optios' style="width:100%;"
+				[data]='datatable'></google-chart>
+		</div>
+	</div>
 
 </div>

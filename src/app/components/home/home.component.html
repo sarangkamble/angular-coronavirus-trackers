@@ -8,7 +8,7 @@
 </div>
 
 <hr>
-<!-- <div class="ui form">
+<div class="ui form">
   <div class="inline fields">
     <label for="fruit">Select Case Type:</label>
     <div class="field">
@@ -37,13 +37,16 @@
     </div>
   </div>
 
-</div> -->
+</div>
 
 <div class="row">
   <div class="col">
-    <google-chart [data]="pieChart"></google-chart>
+    <google-chart [type]="chart.PieChart" [height]='chart.height' [options]='chart.optios' style="width:100%;" [data]='datatable'></google-chart>
   </div>
   <div class="col">
-    <google-chart [data]="columnChart"></google-chart>
+    <google-chart [type]="chart.ColumnChart" [height]='chart.height' [options]='chart.optios' style="width:100%;"  [data]='datatable'></google-chart>
+  </div>
+  <div class="col">
+    <google-chart [type]="chart.LineChart" [height]='chart.height' [options]='chart.optios' style="width:100%;"  [data]='datatable'></google-chart>
   </div>
 </div>

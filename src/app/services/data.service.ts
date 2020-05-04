@@ -3,11 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { GolbalDataSummary } from '../models/global.data';
 import { DateWiseData } from '../models/datewise.data';
-
+import {formatDate} from '@angular/common';
 @Injectable()
 export class DataService {
 
-private GOLBAL_DATA_URL = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/05-02-2020.csv`;
+   dateYesterday: Date = new Date();
+   yesterdayDate: string = formatDate(new Date(this.dateYesterday.setDate(this.dateYesterday.getDate() - 1)), 'MM-dd-yyyy', 'en');
+
+
+private GOLBAL_DATA_URL = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${this.yesterdayDate}.csv`;
+
 private DATEWISE_DATA_URL = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv`;
   constructor(private _http: HttpClient) { }
 

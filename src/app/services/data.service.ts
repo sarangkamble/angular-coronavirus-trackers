@@ -18,7 +18,6 @@ private DATEWISE_DATA_URL = `https://raw.githubusercontent.com/CSSEGISandData/CO
   constructor(private _http: HttpClient) { }
 
   getDateWiseData(){
-    console.log(this.yesterdayDate);
     return this._http.get(this.DATEWISE_DATA_URL, {responseType : 'text'})
       .pipe(map(result =>{
         let rows = result.split('\n');

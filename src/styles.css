@@ -1,3 +1,27 @@
 /* Add application styles & imports to this file! */
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css);
+
+/* 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> */
+
+
+  @media screen and (max-width:768px) {
+
+input.contact.col-md-6{
+    width:40.5%;
+    margin: 15px 15px 0 58px;
+}
+  }
+
+/* <div class="row">
+    <div class="col-md-3">
+      <div class="card">          
+          <h4 class="card-header text-center">This is Card #1</h4>
+          <p class="card-body text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+  </div> */

@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
       this.datatable.push([cs.country, value]);
     });
     //
-    console.log(this.datatable)
+    //console.log(this.datatable)
 
   }
 
@@ -91,6 +91,6 @@ export class HomeComponent implements OnInit {
 
   updateChart(input: HTMLInputElement) {
     this.initChart(input.value);
-    console.log(input.value);
+    //console.log(input.value);
   }
 }

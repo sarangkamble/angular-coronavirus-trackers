@@ -13,8 +13,10 @@
 	<app-dashboard-card [totalConfirmed]='totalConfirmed' [totalRecovered]='totalRecovered' [totalDeaths]='totalDeaths'
 		[totalActive]='totalActive'></app-dashboard-card>
 
+  <hr>
+
 	<div class="row">
-		<div class="col">
+		<div class="col-md-6">
 			<table class="table">
 				<thead>
 					<tr>
@@ -38,7 +40,7 @@
 		<!-- <div class="col">
 			<google-chart [type]="chart.LineChart"></google-chart>
 		</div> -->
-		<div class="col">
+		<div class="col-md-6">
 			<google-chart [type]="chart.LineChart" [height]='chart.height' [options]='chart.optios' style="width:100%;"
 				[data]='datatable'></google-chart>
 		</div>

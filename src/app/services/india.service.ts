@@ -5,4 +5,8 @@ export class IndiaService {
 
   constructor() { }
 
+  getData(){
+    console.log('IndiaService');
+  }
+
 }

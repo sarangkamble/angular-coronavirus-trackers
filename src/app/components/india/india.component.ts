@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IndiaService } from '../../services/india.service';
 
 @Component({
   selector: 'app-india',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndiaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: IndiaService) { }
 
   ngOnInit() {
+
+    this.getData();
+
+  }
+
+  getData(){
+    this.service.getData();
   }
 
 }

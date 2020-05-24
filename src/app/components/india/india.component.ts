@@ -8,6 +8,8 @@ import { IndiaService } from '../../services/india.service';
 })
 export class IndiaComponent implements OnInit {
 
+  data = '';
+
   constructor(private service: IndiaService) { }
 
   ngOnInit() {
@@ -17,7 +19,12 @@ export class IndiaComponent implements OnInit {
   }
 
   getData(){
-    this.service.getData();
+    this.service.getData().subscribe({
+      next: result => {
+        this.data = result;
+        console.log(this.data)
+      }
+    })
   }
 
 }
